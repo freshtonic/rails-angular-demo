@@ -1,0 +1,15 @@
+
+<div ng-app='app' ng-controller='CatalogueController' >
+  <div class='tractor' ng-repeat='tractor in tractors'>
+    <h2><strong>{{ tractor.title }}</h2>
+    <strong>{{ tractor.description }}</strong> 
+    <div ng-controller='ImagesController' ng-init='{images: tractor.images}'>
+      <a ng-show='current > 0' class='prev' ng-click='prev()'>&lt;</a>
+      <img src='/assets/{{image}}' />
+      <a ng-show='current < tractor.images.length - 1' class='next' ng-click='next()'>&gt;</a>
+    </div>
+    <div>
+      {{ tractor.price | currency }}
+    </div>
+  </div>
+</div>
